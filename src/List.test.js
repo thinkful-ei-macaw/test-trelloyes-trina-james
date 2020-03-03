@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer';
 import List from './List.js';
 
 it('renders without crashing', () => {
@@ -15,3 +16,10 @@ it('renders without crashing', () => {
   // clean up code
   ReactDOM.unmountComponentAtNode(div);
 });
+
+it('renders the UI as expected', () => {
+  const tree = renderer
+    .create(<List key="2" header='Big Header' cards={[{'id':'1', 'title':'boom','content':'hello'}]}/>)
+    .toJSON();
+  expect(tree).toMatchSnapshot();  
+  });

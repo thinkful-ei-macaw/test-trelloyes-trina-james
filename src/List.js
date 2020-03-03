@@ -13,7 +13,7 @@ export default function List (props){
         <Card 
           key={card.id}
           title={card.title}
-          contnet={card.content}
+          content={card.content}
         />
           )}
         <button
